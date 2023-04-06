@@ -1,3 +1,4 @@
+import random
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
@@ -70,11 +71,80 @@ for i in range(len(predictions)):
     shirts.append(i)
 print(shirts)
 
-import random
+shirt_top = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'T-shirt/top':
+        shirt_top.append(i)
+print(shirt_top)
 
-random_element = random.choice(shirts)
-print(random_element)
-plt.figure()
-plt.imshow(x_train[random.choice(shirts)])
-plt.colorbar()
-plt.grid(False)
+trouser = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Trouser':
+        trouser.append(i)
+print(trouser)
+
+pullover = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Pullover':
+        pullover.append(i)
+print(pullover)
+
+dress = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Dress':
+        dress.append(i)
+print(dress)
+
+coat = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Coat':
+        coat.append(i)
+print(coat)
+
+sandal = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Sandal':
+        sandal.append(i)
+print(sandal)
+
+sheaker = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Sheaker':
+        sheaker.append(i)
+print(sheaker)
+
+bag = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Bag':
+        bag.append(i)
+print(bag)
+
+ankle_boot = []
+for i in range(len(predictions)):
+    if class_names[np.argmax(predictions[i])] == 'Ankle boot':
+        ankle_boot.append(i)
+print(ankle_boot)
+
+
+def image(list, count = 1):
+
+    for i in range(count):
+
+        plt.figure()
+        plt.imshow(x_train[random.choice(list)])
+        plt.colorbar()
+        plt.grid(False)
+
+    return None
+
+
+image(ankle_boot, 3)
+image(shirts, 3)
+image(bag, 3)
+image(sheaker, 3)
+image(sandal, 3)
+image(coat, 3)
+image(dress, 3)
+image(pullover, 3)
+image(trouser, 3)
+image(shirt_top, 3)
