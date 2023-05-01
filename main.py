@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 
 # Create a list with the filepaths for training and testing
-train_dir = Path(r"C:\Users\Julian\Desktop\python_code\muit\dataset\train")
+train_dir = Path('dataset/train')
 train_filepaths = list(train_dir.glob(r'**/*.jpg'))
 print(train_filepaths[1])
-test_dir = Path(r"C:\Users\Julian\Desktop\python_code\muit\dataset\test")
+test_dir = Path('dataset/test')
 test_filepaths = list(test_dir.glob(r'**/*.jpg'))
 
-val_dir = Path(r"C:\Users\Julian\Desktop\python_code\muit\dataset\validation")
+val_dir = Path('dataset/validation')
 val_filepaths = list(test_dir.glob(r'**/*.jpg'))
 
 def proc_img(filepath):
@@ -133,12 +133,11 @@ x = tf.keras.layers.Dense(128, activation='relu')(x)
 
 outputs = tf.keras.layers.Dense(36, activation='softmax')(x)
 
-loaded_model = tf.keras.models.load_model(r"C:\Users\Julian\Desktop\python_code\muit\my_model")
+loaded_model = tf.keras.models.load_model('my_model')
 
 # Predict the label of the test_images
 predictions = loaded_model.predict(test_images)
 predictions = np.argmax(predictions, axis=1)
-
 # Map the label
 # print(train_images.class_indices)
 labels = (train_images.class_indices)
