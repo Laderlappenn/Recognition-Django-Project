@@ -10,7 +10,7 @@ git clone https://github.com/username/repository.git
 cd repository
 
 3.  Установить зависимости:
-pip install -r requirements.txt
+pip install -r requirements.txt (требуется python 3.10, на других версиях возможно не будет работать)
 
 4.Кроме того, для работы данной нейронной сети необходимо использовать датасет изображений овощей и фруктов. Для этого мы можем воспользоваться набором данных, доступным на Kaggle по ссылке https://www.kaggle.com/datasets/kritikseth/fruit-and-vegetable-image-recognition. Для использования данного датасета в проекте, необходимо загрузить его на свой компьютер и поместить в папку dataset внутри проекта Django. После этого, изменять путь к файлу датасета в коде модели нейронной сети не будет требоваться.
 
