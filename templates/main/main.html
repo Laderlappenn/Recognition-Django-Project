@@ -2,9 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распознавание фруктов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        .upload-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .upload-button:hover {
+            background-color: #45a049;
+        }
+        .fruit-image {
+            max-width: 400px;
+            margin-top: 40px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1 style="font-size: 48px; text-shadow: 2px 2px #000;">Распознавание фруктов</h1>
+      <button onclick="location.href='{% url 'app:about' %}'" style="margin-top: 20px; font-size: 16px;">О нас</button>
 
+
+    </header>
+    <main>
+
+        <h2 style="color: #555; font-size: 36px;">Загрузите фотографию фрукта</h2>
+        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+        <label for="image-upload" class="upload-button" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">Выбрать файл</label>
+        <div id="result-container" style="display: none;">
+            <h3 style="color: #333; font-size: 28px;">Результат распознавания:</h3>
+            <img id="fruit-image" class="fruit-image" src="" alt="Фото фрукта" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <div id="result" class="result" style="color: #555;"></div>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 Распознавание фруктов. Все права защищены.</p>
+    </footer>
+    <script>
+        // Обработчик события загрузки файла
+        document.getElementById('image-upload').addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                var imgElement = document.getElementById('fruit-image');
+                var resultContainer = document.getElementById('result-container');
+                var resultElement = document.getElementById('result');
+
+                imgElement.src = e.target.result;
+                resultContainer.style.display = 'block';
+
+                // Место для логики распознавания фрукта
+
+                resultElement.innerHTML = 'Распознанный фрукт: яблоко';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
 </body>
 </html>
