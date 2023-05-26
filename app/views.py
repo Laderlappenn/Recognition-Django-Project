@@ -1,15 +1,51 @@
 from django.shortcuts import render
 
+from django.shortcuts import render, redirect
+from .forms import PhotoUploadForm
+
+from neiro_model.main import predict
+
+def upload_photo(request):
+    if request.method == 'POST':
+        form = PhotoUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            photo = form.save()  # Save the form to create a new Photo instance
+            # Additional processing if needed
+            return render(request, 'main/response.html', {'button_title': predict()})
+    else:
+        form = PhotoUploadForm()
+
+    return render(request, 'main/main.html', {'form': form})
+
+
 def main(request):
 
 
+
     return render(request, 'main/main.html', {})
+
+
+
+
 
 
 def about(request):
 
 
     return render(request, 'main/about.html', {})
+
+def login(request):
+
+
+    return render(request, 'main/login.html', {})
+
+
+def profile(request):
+
+
+    return render(request, 'main/profile.html', {})
+
+
 # Create your views here.
 # def main(request):
 #     import numpy as np

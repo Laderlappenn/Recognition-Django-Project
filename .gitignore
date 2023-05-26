@@ -1,7 +1,7 @@
 # ignore dataset
 dataset
 
-
+neiro_model/dataset
 
 .env
 __pycache__/

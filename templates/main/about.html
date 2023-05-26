@@ -43,7 +43,9 @@
 <body>
     <header>
         <h1 style="font-size: 48px; text-shadow: 2px 2px #000;">О нас</h1>
-      <button onclick="location.href='{% url 'app:main' %}'" style="margin-top: 20px; font-size: 16px;">О нас</button>
+      <button onclick="location.href='{% url 'app:main' %}'" style="margin-top: 20px; font-size: 16px;">Главная</button>
+        <button onclick="location.href='{% url 'app:login' %}'" style="margin-top: 20px; font-size: 16px;">Логин</button>
+        <button onclick="location.href='{% url 'app:profile' %}'" style="margin-top: 20px; font-size: 16px;">Профиль</button>
 
 
     </header>
