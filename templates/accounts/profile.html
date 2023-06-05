@@ -105,9 +105,9 @@
 
 
     <header>
-      <button onclick="location.href='{% url 'app:main' %}'" style="margin-top: 20px; font-size: 16px;">Главная</button>
-        <button onclick="location.href='{% url 'app:login' %}'" style="margin-top: 20px; font-size: 16px;">Логин</button>
-        <button onclick="location.href='{% url 'app:profile' %}'" style="margin-top: 20px; font-size: 16px;">Профиль</button>
+      <button onclick="location.href='{% url 'app:upload_photo' %}'" style="margin-top: 20px; font-size: 16px;">Главная</button>
+        <button onclick="location.href='{% url 'accounts:login' %}'" style="margin-top: 20px; font-size: 16px;">Логин</button>
+        <button onclick="location.href='{% url 'accounts:profile' %}'" style="margin-top: 20px; font-size: 16px;">Профиль</button>
 
 
     </header>
@@ -117,23 +117,23 @@
         <h1>Profile</h1>
         <div class="item">
             <span>Имя:</span>
-            <span>Олжас</span>
+            <span>{{ profile.username }}</span>
         </div>
         <div class="item">
             <span>Фамилия:</span>
-            <span>Токенов</span>
+            <span>{{ profile.username }}</span>
         </div>
         <div class="item">
-            <span>Возраст:</span>
-            <span>21</span>
-        </div>
-        <div class="item">
-            <span>Телефон:</span>
-            <span>+7 778 907 99 64</span>
+            <span>Админ</span>
+            <span>{{ profile.is_admin }}</span>
         </div>
         <div class="item">
             <span>Email:</span>
-            <span>olzhastokenov@gmail.com</span>
+            <span>{{ profile.email }}</span>
+        </div>
+        <div class="item">
+            <span>Дата регистрации:</span>
+            <span>{{ profile.date_joined }}</span>
         </div>
     </div>
 

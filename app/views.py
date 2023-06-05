@@ -11,7 +11,7 @@ def upload_photo(request):
         if form.is_valid():
             photo = form.save()  # Save the form to create a new Photo instance
             # Additional processing if needed
-            return render(request, 'main/response.html', {'button_title': predict()})
+            return render(request, 'main/response.html', {'button_title': "Предсказание"}) #predict()
     else:
         form = PhotoUploadForm()
 
@@ -34,10 +34,10 @@ def about(request):
 
     return render(request, 'main/about.html', {})
 
-def login(request):
-
-
-    return render(request, 'main/login.html', {})
+# def login(request):
+#
+#
+#     return render(request, 'main/login.html', {})
 
 
 def profile(request):

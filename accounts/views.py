@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 def profile(request):
     user_id = request.user.id
     queryset = Account.objects.get(id=user_id)  # get_object_or_404(Account, pk=user_id)
-    return render(request, 'main/profile.html', {'profile': queryset})
+    return render(request, 'accounts/profile.html', {'profile': queryset})
 
 
 # def register(request):
@@ -36,7 +36,7 @@ def profile(request):
 #
 
 class BBLoginView(LoginView):
-    template_name = 'main/login.html'
+    template_name = 'accounts/login.html'
 
 
 class BBLogoutView(LoginRequiredMixin, LogoutView):

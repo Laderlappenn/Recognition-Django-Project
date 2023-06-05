@@ -19,7 +19,7 @@ def predict():
     def proc_img(filepath):
         """ Create a DataFrame with the filepath and the labels of the pictures
         """
-        print(len(filepath))
+        # print(len(filepath))
         labels = [str(filepath[i]).split("\\")[-2] for i in range(len(filepath))]
 
         filepath = pd.Series(filepath, name='Filepath').astype(str)
@@ -38,7 +38,7 @@ def predict():
     test_df = proc_img(test_filepaths)
     # val_df = proc_img(val_filepaths)
 
-    print('-- Training set --\n')
+    # print('-- Training set --\n')
     # print(f'Number of pictures: {train_df.shape[0]}\n')
     # print(f'Number of different labels: {len(train_df.Label.unique())}\n')
     # print(f'Labels: {train_df.Label.unique()}')
@@ -126,15 +126,14 @@ def predict():
     predictions = loaded_model.predict(test_images)
     predictions = np.argmax(predictions, axis=1)
     # Map the label
-    print(len(predictions))
+    # print(len(predictions))
     # print(train_images.class_indices)
     labels = (train_images.class_indices)
     labels = dict((v, k) for k, v in labels.items())
-    print(labels)
+    # print(labels)
     pred = [labels[k] for k in predictions]
-    print(predictions)
-    print(pred)
+    # print(predictions)
+    # print(pred)
 
     return pred
 
-print(predict())
